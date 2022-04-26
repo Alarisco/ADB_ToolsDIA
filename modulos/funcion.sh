@@ -77,6 +77,7 @@ case $options in
       "4") echo -e; bash modulos/opt4;;
       "5") echo -e; bash modulos/opt5;;
       "6") echo -e; bash modulos/opt6;;       
+      "7") echo -e; bash modulos/opt7;;       
 
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;

@@ -1,0 +1,164 @@
+#!/bin/bash
+#Tool = ADB_ToolsDia v2
+#Author = Alvaro Alonso
+#Date = 2022
+
+#!/bin/bash
+
+echo -e "\e[1;93mEjemplo :- \e[1;92m/tmp/ejemplo.apk]"
+
+adb devices | sed -n '2,$p' | awk '{ print $1 }' > .temp/dev_list_temp 2> /dev/null
+dev=(`cat .temp/dev_list_temp`)
+dev=("${dev[@]}")
+dev_1=$(echo "${dev[0]}")
+dev_2=$(echo "${dev[1]}")
+dev_3=$(echo "${dev[2]}")
+
+
+adb devices -l | grep model > .temp/dev_list_model_temp 2> /dev/null
+model=(`cat .temp/dev_list_model_temp`)
+model=("${model[@]}")
+mod_1=$(echo "${model[4]}" | cut -c 7- )
+mod_2=$(echo "${model[11]}" | cut -c 7- )
+mod_3=$(echo "${model[18]}" | cut -c 7- )
+
+
+if [ "$dev_1" == "" ]
+    then
+        total_dev=0
+    else
+        total_dev=1
+        if [ "$dev_2" == "" ]
+            then
+                total_dev=1
+            else
+                total_dev=2
+                if [ "$dev_3" == "" ]
+                    then
+                        total_dev=2
+                    else
+                        total_dev=3
+                fi
+        fi        
+fi
+
+apk_install () {
+
+        if [ "$a_instalar" == "0" ]
+            then
+                adb -s $devv install -r $ruta_apk &> /dev/null
+                if [ "$?" == "0" ]
+                    then
+                        echo -e "\n\e[1;92mAPK instalada correctamente $modd\n"
+                    else
+                        echo -e "\n\e[1;91mFallo al instalar APK, algo ha salido mal $modd\n"
+                fi
+        fi
+}
+
+apk_file_selector () {
+
+  read -p $'\e[1;91mEscribe la ruta absoluta en la que se encuentra en apk\e[0m \e[24;1;97m : ' ruta_apk
+  if [ "$ruta_apk" = "" ]
+    then
+          echo -e "No se ha seleccionado nungún APK"
+          apk_file_selector
+    else
+         if [ -f $ruta_apk ]
+           then
+               echo -e "\n\nInstalando APK seleccionado.\n\n"
+               apk_install
+               a_instalar=0
+           else
+               echo -e "El fichero no existe, comprueba la ruta y el tipo de archivo. SOLO .APK\n"
+               a_instalar=1
+               apk_file_selector
+         fi
+  fi
+
+}
+
+
+
+dev_1_inst () {
+
+                echo -e "\n\e[1;92mInstalando APK en el dispositivo $mod_1\n"
+                devv=$(echo $dev_1)
+                modd=$(echo $mod_1)                
+                apk_file_selector
+                apk_install
+
+}
+
+dev_2_inst () {
+
+                echo -e "\n\e[1;92mInstalando APK en el dispositivo $mod_2\n"
+                devv=$(echo $dev_2)
+                modd=$(echo $mod_2)
+                apk_file_selector
+                apk_install
+                
+}
+
+dev_3_inst () {
+
+                echo -e "\n\e[1;92mInstalando APK en el dispositivo $mod_3\n"
+                devv=$(echo $dev_3)
+                modd=$(echo $mod_3)
+                apk_file_selector
+                apk_install
+                
+}
+
+if [ "$total_dev" ==  "0" ]
+    then
+        echo -e "\e[91;1mNO SE HAN ENCONTRADO DISPOSITIVOS"
+    else
+        if [ "$total_dev" == "1" ]
+            then
+                
+                dev_1_inst
+
+            else
+                if [ "$total_dev" == "2" ]
+                    then
+                        echo -e "\e[93mSelecciona el dispositivo en el que instalar APK :- \e[92m\n"
+                        echo -e "\e[93m1. \e[92m$dev_1 , \e[93mModel : \e[92m$mod_1"
+                        echo -e "\e[93m2. \e[92m$dev_2 , \e[93mModel : \e[92m$mod_2"
+                        while [ 1 ]; do
+                            read -p $'\n\e[1;4;91mNº\e[0m\e[24;1;97m : ' options
+                            case $options in
+                            "1") dev_1_inst; break;;
+                            "2") dev_2_inst; break;;
+                              *) echo -e "\n\e[1;4;91mSelecciona un dispositivo :- (1/2)\n";;
+                            esac
+                        done
+                    else
+                        if [ "$total_dev" == "3" ]
+                            then
+                                echo -e "\e[93mSelecciona el dispositivo en el que instalar APK :- \e[92m\n"
+                                echo -e "\e[93m1. \e[92m$dev_1 , \e[93mModel : \e[92m$mod_1"
+                                echo -e "\e[93m1. \e[92m$dev_2 , \e[93mModel : \e[92m$mod_2"
+                                echo -e "\e[93m1. \e[92m$dev_3 , \e[93mModel : \e[92m$mod_3"
+                        while [ 1 ]; do
+                            read -p $'\n\e[1;4;91mNº\e[0m\e[24;1;97m : ' options
+                            case $options in
+                            "1") dev_1_inst; break;;
+                            "2") dev_2_inst; break;;
+                            "3") dev_3_inst; break;;
+                              *) echo -e "\n\e[1;4;91mSelecciona un dispositivo :- (1/2/3/)\n";;
+                            esac
+                        done
+                        fi
+                fi  
+                        
+        fi
+fi
+
+
+read -p $'\n\e[93;1mDESEAS LIMPIAR LA PANTALLA (clear) \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+case $yn in
+  [Yy]* ) clear; bash modulos/funcion.sh;;
+  [Nn]* ) bash modulos/funcion.sh;;
+  * ) bash modulos/funcion.sh;;
+esac
