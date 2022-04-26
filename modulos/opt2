@@ -1,0 +1,14 @@
+#!/bin/bash
+#Tool = ADB_ToolsDia v2
+#Author = Alvaro Alonso
+#Date = 2022
+
+adb kill-server >/dev/null 2>&1 | echo -e "\n\e[1;91mParando servicio ADB"
+adb start-server >/dev/null 2>&1 | echo -e "\n\e[1;92mIniciando servicio ADB"
+
+read -p $'\n\e[93;1mDESEAS LIMPIAR LA PANTALLA (clear) \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+case $yn in
+  [Yy]* ) clear; bash modules/funcion.sh;;
+  [Nn]* ) bash modules/funcion.sh;;
+  * ) bash modules/funcion.sh;;
+esac
