@@ -49,7 +49,7 @@ echo -e "\e[1;93m6.   \e[1;92mINFORMACION DEL TERMINAL RESUMEN"
 echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'"
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
 echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
-echo -e "\e[1;93m10.   \e[1;92mTAILOG DEL TERMINAL"
+echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL"
 echo -e "\e[1;93m11.  \e[1;92mREALIZA UNA CAPTURA DE PANTALLA"
 echo -e "\e[1;93m12.  \e[1;92mREALIZA UNA GRABACION DE LA PANTALLA"
 echo -e "\e[1;93m13.  \e[1;92mCOPIA TODAS LAS FOTOS DEL TERMINAL"
@@ -80,6 +80,7 @@ case $options in
       "7") echo -e; bash modulos/opt7;;       
       "8") echo -e; bash modulos/opt8;;       
       "9") echo -e; bash modulos/opt9;;       
+      "10") echo -e; bash modulos/opt10;;       
 
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
