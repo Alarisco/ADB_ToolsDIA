@@ -44,7 +44,7 @@ dev_1_dump () {
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mCopiando el log del dispositivo $mod_1\n"
                 adb -s $dev_1 shell logcat > sys-dump-info/$mod_1-LOG-$time.log & 
-                echo -e "\e[1;92mPress q to stop in viewing\n"
+                echo -e "\e[1;92mPresiona q para salir\n"
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_1-LOG-$time.log | less
 
@@ -55,7 +55,7 @@ dev_2_dump () {
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mCopiando el log del dispositivo $mod_2\n"
                 adb -s $dev_2 shell logcat > sys-dump-info/$mod_2-LOG-$time.log & 
-                echo -e "\e[1;92mPress q to stop in viewing\n"
+                echo -e "\e[1;92mPresiona q para salir\n"
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_2-LOG-$time.log | less
                 
@@ -66,7 +66,7 @@ dev_3_dump () {
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mCopiando el log del dispositivo $mod_3\n"
                 adb -s $dev_3 shell logcat > sys-dump-info/$mod_3-LOG-$time.log & 
-                echo -e "\e[1;92mPress q to stop in viewing\n"
+                echo -e "\e[1;92mPresiona q para salir\n"
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_3-LOG-$time.log | less
                 
@@ -103,7 +103,7 @@ if [ "$total_dev" ==  "0" ]
                                 echo -e "\e[93m1. \e[92m$dev_2 , \e[93mModel : \e[92m$mod_2"
                                 echo -e "\e[93m1. \e[92m$dev_3 , \e[93mModel : \e[92m$mod_3"
                         while [ 1 ]; do
-                            read -p $'\n\e[1;4;91mEnter here\e[0m\e[24;1;97m : ' options
+                            read -p $'\n\e[1;4;91mSelecciona el dispositivo\e[0m\e[24;1;97m : ' options
                             case $options in
                             "1") dev_1_dump; break;;
                             "2") dev_2_dump; break;;
@@ -116,3 +116,10 @@ if [ "$total_dev" ==  "0" ]
                         
         fi
 fi
+
+read -p $'\n\e[93;1mDESEAS LIMPIAR LA PANTALLA (clear) \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+case $yn in
+  [Yy]* ) clear; bash modulos/funcion.sh;;
+  [Nn]* ) bash modulos/funcion.sh;;
+  * ) bash modulos/funcion.sh;;
+esac
