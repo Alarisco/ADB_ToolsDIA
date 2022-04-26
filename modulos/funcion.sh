@@ -2,3 +2,79 @@
 #Tool = ADB_ToolsDia v2
 #Author = Alvaro Alonso
 #Date = 2022
+
+clean_exit () {
+
+    rm -rf $PWD/.temp/* &> /dev/null
+    rm -rf $PWD/1 &> /dev/null
+    rm -rf $PWD/2 &> /dev/null
+    clear && echo -e "\n Ctrl-C pulsado...Limpiando script.\n" && sleep 1s
+    echo -e "Saliendo de la Herramienta, Gracias por usarla"
+    echo -e "\nLISTO. CHAO"
+    exit
+}
+
+trap_ctrlc () {
+    clean_exit
+}
+
+trap "trap_ctrlc" 2
+
+echo -e "\e[1;93m
+
+ █████╗ ██████╗ ██████╗               ████████╗ ██████╗  ██████╗ ██╗     ███████╗    ██████╗ ██╗ █████╗ ██╗ ██╗
+██╔══██╗██╔══██╗██╔══██╗              ╚══██╔══╝██╔═══██╗██╔═══██╗██║     ██╔════╝    ██╔══██╗██║██╔══██╗╚═╝██╔╝
+███████║██║  ██║██████╔╝    █████╗       ██║   ██║   ██║██║   ██║██║     ███████╗    ██║  ██║██║███████║  ██╔╝ 
+██╔══██║██║  ██║██╔══██╗    ╚════╝       ██║   ██║   ██║██║   ██║██║     ╚════██║    ██║  ██║██║██╔══██║ ██╔╝  
+██║  ██║██████╔╝██████╔╝                 ██║   ╚██████╔╝╚██████╔╝███████╗███████║    ██████╔╝██║██║  ██║██╔╝██╗
+╚═╝  ╚═╝╚═════╝ ╚═════╝                  ╚═╝    ╚═════╝  ╚═════╝ ╚══════╝╚══════╝    ╚═════╝ ╚═╝╚═╝  ╚═╝╚═╝ ╚═╝
+
+\e[0m"
+echo
+echo -e "\ePor Alvaro Alonso\e[0m"
+}
+
+
+option_list () {
+
+banner
+echo -e "\n\n\e[1;4;91mESCOGE UNA OPCION:\e[0m\n\n"
+echo -e "\e[1;93m1.   \e[1;92mMOSTRAR DISPOSITIVOS CONECTADOS                           \e[1;93m24.  \e[1;92mMOVER FICHERO AL TERMINAL"
+echo -e "\e[1;93m2.   \e[1;92mREINICIAR EL SERVICIO ADB"
+echo -e "\e[1;93m3.   \e[1;92mREINICIAR EL TERMINAL CONECTADO"
+echo -e "\e[1;93m6.   \e[1;92mLANZA UNA CONSOLA ADB_SHELL                       \e[1;93m26.  \e[1;92mEJECUTA UNA APLICACION "
+echo -e "\e[1;93m10.  \e[1;92mINFORMACION DEL TERMINAL"
+echo -e "\e[1;93m12.  \e[1;92mINSTALL AN PACAKAGE 'apk'"
+echo -e "\e[1;93m13.  \e[1;92mDESISTALA UNA APLICACION"
+echo -e "\e[1;93m14.  \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
+echo -e "\e[1;93m15.  \e[1;92mSEE TAILOG DEL TERMINAL"
+echo -e "\e[1;93m17.  \e[1;92mREALIZA UNA CAPTURA DE PANTALLA"
+echo -e "\e[1;93m18.  \e[1;92mREALIZA UNA GRABACION DE LA PANTALLA"
+echo -e "\e[1;93m19.  \e[1;92mCOPIA TODAS LAS FOTOS DEL TERMINAL"
+echo -e "\e[1;93m20.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD"
+echo -e "\e[1;93m21.  \e[1;92mCOPIA TODA LA CARPETA WHATSAPP"
+echo -e "\e[1;93m22.  \e[1;92mCOPIA COMPLETA DEL TERMINAL ( Takes time )"
+echo -e "\e[1;93m23.  \e[1;92mCOPIA UNA CARPETA ESPECIFICA DEL TERMINAL                  \e[1;91mEXIT o PRESIONA Ctrl+c\n"
+echo -e $revised
+read -p $'\e[1;4;91mINTRODUCE EL NUMERO DE LA OPCION QUE DESEAS EJECUTAR\e[0m\e[24;1;97m : ' options
+}
+
+revised=""
+option_list
+
+##COMIENZA EL LOOP
+
+while [ 1 ]
+do
+
+case $options in
+
+      "1") echo -e; bash modules/opt1;;
+
+
+
+      *) clear; revised="\eERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
+
+esac
+
+done
