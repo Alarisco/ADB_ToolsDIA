@@ -43,12 +43,12 @@ echo -e "\n\n\e[1;4;91mESCOGE UNA OPCION:\e[0m\n\n"
 echo -e "\e[1;93m1.   \e[1;92mMOSTRAR DISPOSITIVOS CONECTADOS                           \e[1;93m17.  \e[1;92mMOVER FICHERO AL TERMINAL"
 echo -e "\e[1;93m2.   \e[1;92mREINICIAR EL SERVICIO ADB"
 echo -e "\e[1;93m3.   \e[1;92mREINICIAR EL TERMINAL CONECTADO"
-echo -e "\e[1;93m4.   \e[1;92mLANZA UNA CONSOLA ADB_SHELL                       \e[1;93m18.  \e[1;92mEJECUTA UNA APLICACION "
-echo -e "\e[1;93m5.  \e[1;92mINFORMACION DEL TERMINAL"
-echo -e "\e[1;93m6.  \e[1;92mINSTALL AN PACAKAGE 'apk'"
-echo -e "\e[1;93m7.  \e[1;92mDESISTALA UNA APLICACION"
-echo -e "\e[1;93m8.  \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
-echo -e "\e[1;93m9.  \e[1;92mTAILOG DEL TERMINAL"
+echo -e "\e[1;93m4.   \e[1;92mLANZA UNA CONSOLA ADB_SHELL                               \e[1;93m18.  \e[1;92mEJECUTA UNA APLICACION "
+echo -e "\e[1;93m5.   \e[1;92mINFORMACION DEL TERMINAL"
+echo -e "\e[1;93m6.   \e[1;92mINSTALL AN PACAKAGE 'apk'"
+echo -e "\e[1;93m7.   \e[1;92mDESISTALA UNA APLICACION"
+echo -e "\e[1;93m8.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
+echo -e "\e[1;93m9.   \e[1;92mTAILOG DEL TERMINAL"
 echo -e "\e[1;93m10.  \e[1;92mREALIZA UNA CAPTURA DE PANTALLA"
 echo -e "\e[1;93m11.  \e[1;92mREALIZA UNA GRABACION DE LA PANTALLA"
 echo -e "\e[1;93m12.  \e[1;92mCOPIA TODAS LAS FOTOS DEL TERMINAL"
@@ -73,8 +73,9 @@ case $options in
       "1") echo -e; bash modulos/opt1;;
       "2") echo -e; bash modulos/opt2;;
       "3") echo -e; bash modulos/opt3;;
+      "4") echo -e; bash modulos/opt4;;
 
-      *) clear; revised="\eERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
+      *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
 esac
 
