@@ -12,7 +12,7 @@ echo -e "Comprobando si hay una nueva versión"
 comprueba_nueva_version () {
 
     if ping -q -c 1 -W 1 google.com >/dev/null; then
-        checked_version=$(curl -s https://github.com/Alarisco/ADB_ToolsDIA/blob/0387763a685eee518947d6c5d10afb6320b802d6/modulos/version)
+        checked_version=$(curl -s https://github.com/Alarisco/ADB_ToolsDIA/blob/main/modulos/version)
             if ["$checked_version" != "$actualversion"]
                 then
                     echo -e "Versión Actual = $actualversion , Nueva Versión = $checked_version"
