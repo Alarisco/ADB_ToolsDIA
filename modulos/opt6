@@ -86,9 +86,9 @@ dev_3_dump () {
 
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mVolcando información del disposivo $mod_1\n"
-                echo -e "Modelo:"  2> /dev/null >>> sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "Modelo:"  2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell getprop ro.product.model 2> /dev/null >>> sys-dump-info/$mod_1-$time-symple.dump 
-                echo -e "Marca:" 2> /dev/null >>> sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "Marca:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null >>> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "SN:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb get-serialno 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
