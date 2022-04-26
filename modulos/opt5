@@ -44,7 +44,7 @@ dev_1_dump () {
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mVolcando información del disposivo $mod_1\n"
                 adb shell dumpsys 2> /dev/null > sys-dump-info/$mod_1-$time.dump & 
-                adb shell dumpsys package com.dia.tiendas.gestiontienda >/dev/null > sys-dump-info/$mod_1-$time.dump &
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName"  >/dev/null > sys-dump-info/$mod_1-$time.dump &
                 echo -e "\e[1;92mPresiona q para salir\n"
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_1-$time.dump | less
@@ -56,7 +56,7 @@ dev_2_dump () {
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mVolcando información del dispositivo $mod_2\n"
                 adb -s $dev_2 shell dumpsys 2> /dev/null > sys-dump-info/$mod_2-$time.dump & 
-                adb shell dumpsys package com.dia.tiendas.gestiontienda >/dev/null > sys-dump-info/$mod_1-$time.dump &
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName"  >/dev/null > sys-dump-info/$mod_1-$time.dump &
                 echo -e "\e[1;92mPresiona q para salir\n"
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_2-$time.dump | less
@@ -68,7 +68,7 @@ dev_3_dump () {
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mVolcando información del dispositivo $mod_3\n"
                 adb -s $dev_3 shell dumpsys 2> /dev/null > sys-dump-info/$mod_3-$time.dump & 
-                adb shell dumpsys package com.dia.tiendas.gestiontienda >/dev/null > sys-dump-info/$mod_1-$time.dump &
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName"  >/dev/null > sys-dump-info/$mod_1-$time.dump &
                 echo -e "\e[1;92mPresiona q para salir\n"
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_3-$time.dump | less
