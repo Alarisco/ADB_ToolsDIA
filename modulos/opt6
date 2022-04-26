@@ -86,18 +86,18 @@ dev_3_dump () {
 
                 time=$(date +"%T")
                 echo -e "\n\e[1;92mVolcando información del disposivo $mod_1\n"
-                echo -e "Modelo:"  2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                adb shell getprop ro.product.model 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                echo -e "Marca:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                echo -e "SN:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                adb get-serialno 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                echo -e "VERSION_ANDROID:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                adb shell getprop ro.build.version.release 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                echo -e "ANDROID_ID:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                adb shell settings get secure android_id 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                echo -e "VERSION_APP_GT:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
-                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump &
+                echo -e "Modelo:"  2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell getprop ro.product.model 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "Marca:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "SN:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                adb get-serialno 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "VERSION_ANDROID:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell getprop ro.build.version.release 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "ANDROID_ID:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell settings get secure android_id 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                echo -e "VERSION_APP_GT:" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" 2> /dev/null > sys-dump-info/$mod_1-$time-symple.dump 
 
                 sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_1-$time-symple.dump                
