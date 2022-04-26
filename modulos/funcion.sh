@@ -70,9 +70,9 @@ do
 
 case $options in
 
-      "1") echo -e; bash modules/opt1;;
-      "2") echo -e; bash modules/opt2;;
-      "3") echo -e; bash modules/opt3;;
+      "1") echo -e; bash modulos/opt1;;
+      "2") echo -e; bash modulos/opt2;;
+      "3") echo -e; bash modulos/opt3;;
 
       *) clear; revised="\eERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
