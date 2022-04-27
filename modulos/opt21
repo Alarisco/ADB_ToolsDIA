@@ -55,7 +55,7 @@ if [ "$total_dev" ==  "0" ]
                 echo -e "\e[1;92mPresiona q para salir de la vista\n"
                 sleep 1s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 read -p $'\e[1;93mEscribe el nombre del paquete : \e[0m' package_name
-                adb -s $dev_1  shell 'pm list packages -f' | sed -e 's/.*=//' | sed -e 's/^/ /' | sort | grep "*$package_name*"
+                adb -s $dev_1  shell 'pm list packages -f' | sed -e 's/.*=//' | sed -e 's/^/ /' | grep "*$package_name*"
                 echo -e "\n\e[1;92mLISTO"
             else
                 if [ "$total_dev" == "2" ]
