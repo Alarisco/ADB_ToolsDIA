@@ -92,6 +92,8 @@ case $options in
       "16") echo -e; bash modulos/opt16;;
       "17") echo -e; bash modulos/opt17;;
       "18") echo -e; bash modulos/opt18;;
+      "19") echo -e; bash modulos/opt19;;
+      "20") echo -e; bash modulos/opt20;;
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
