@@ -52,7 +52,7 @@ dia_tree(){
                       adb shell mkdir /sdcard/dia/in >/dev/null
                       adb shell mkdir /sdcard/dia/out >/dev/null
                       adb shell mkdir /sdcard/dia/temp >/dev/null
-                    echo -e "\n\e[1;93mProceso correcto\n\e[93m"
+                    echo -e "\n\e[1;92mProceso correcto\n\e[93m"
 
 }
 
