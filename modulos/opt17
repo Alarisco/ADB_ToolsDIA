@@ -101,7 +101,7 @@ if [ "$total_dev" ==  "0" ]
         if [ "$total_dev" == "1" ]
             then
                 echo -e "\e[93m1. \e[92m$dev_1 , \e[93mModel : \e[92m$mod_1"
-                dev_1_tree
+                dev_1_dia
 
             else
                 if [ "$total_dev" == "2" ]
@@ -112,8 +112,8 @@ if [ "$total_dev" ==  "0" ]
                         while [ 1 ]; do
                             read -p $'\n\e[1;4;91mSelecciona\e[0m\e[24;1;97m : ' options
                             case $options in
-                            "1") dev_1_tree; break;;
-                            "2") dev_2_tree; break;;
+                            "1") dev_1_dia; break;;
+                            "2") dev_2_dia; break;;
                               *) echo -e "\n\e[1;4;91mEscoge un dispositivo :- (1/2)\n";;
                             esac
                         done
@@ -127,9 +127,9 @@ if [ "$total_dev" ==  "0" ]
                         while [ 1 ]; do
                             read -p $'\n\e[1;4;91mSelecciona\e[0m\e[24;1;97m : ' options
                             case $options in
-                            "1") dev_1_tree; break;;
-                            "2") dev_2_tree; break;;
-                            "3") dev_3_tree; break;;
+                            "1") dev_1_dia; break;;
+                            "2") dev_2_dia; break;;
+                            "3") dev_3_dia; break;;
                               *) echo -e "\n\e[1;4;91mEscoge un dispositivo :- (1/2/3/)\n";;
                             esac
                         done
