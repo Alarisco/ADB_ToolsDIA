@@ -1,0 +1,6 @@
+ChangeLog Version 2.0.2
+
+- Se añaden opciones
+- Soporte para conectar hasta 3 móviles a la vez
+
+Changelog de ejemplo
