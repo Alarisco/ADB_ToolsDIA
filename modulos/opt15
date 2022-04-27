@@ -49,7 +49,7 @@ if_file_exist_in_dev (){
     echo -e "\n\e[1;93mNo incluyas \e[1;92m/sdcard/\e[1;93m , Ejemplo :- \e[1;92mDownload/dia.pdf]\n"
     while [ 1 ]
         do    
-            read -p $'\e[1;93mEscribe la ruta del archivo que deseas pasar : \e[0m' file_to_copy_path
+            read -p $'\e[1;93mEscribe la ruta del archivo que deseas descargar : \e[0m' file_to_copy_path
             if [ "$file_to_copy_path" == "" ]
                 then
                     echo -e "\e[91mEscribe la ruta por favor....\n"
@@ -76,7 +76,7 @@ if_dir_exist_in_dev (){
     echo -e "\n\e[1;93mNo incluyas \e[1;92m/sdcard/\e[1;93m , Ejemplo :- \e[1;92mDownload/]\n"
     while [ 1 ]
         do    
-            read -p $'\e[1;93mEscribe la ruta del directorio que deseas copiar : \e[0m' dir_to_copy_path
+            read -p $'\e[1;93mEscribe la ruta del directorio que deseas descargar : \e[0m' dir_to_copy_path
             if [ "$dir_to_copy_path" == "" ]
                 then
                     echo -e "\e[91mEscribe la ruta por favor...\n"
