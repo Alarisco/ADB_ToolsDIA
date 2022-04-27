@@ -63,10 +63,12 @@ dev_1_dia_pull () {
                 case $yn in
                 [Yy]* ) 
                     read -p 'Introduce un nombre para el archivo: ' inputname
-                    
-                    tar -zcvf $PWD/device-pull/$mod_1-$dev_1/$inputname_dia-$time.tar.gz $PWD/device-pull/$mod_1-$dev_1/dia* >dev/null
+                    pushd $PWD/device-pull/$mod_1-$dev_1/
+
+                    tar -zcvf $inputname_dia-$time.tar.gz dia-$time/ >/dev/null
                     echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
-                    rsync --progress $inputname_$PWD/device-pull/$mod_1-$dev_1/dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
+                    rsync --progress $PWD/device-pull/$mod_1-$dev_1/$inputname_dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
+                    popd >/dev/null
                             ;;
                 [Nn]* ) ;;
                 * ) echo -e "\n\e[1;4;91mYy/Nn :- (1/2)\n";;
