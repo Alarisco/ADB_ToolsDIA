@@ -53,19 +53,12 @@ subida_hsr () {
                     echo -e "Escribe un nombre por favor"
                     subida_hsr
                 else
-                    if [ "$gzname" = "$gzname"]
-                        then
-                            pushd $PWD/device-pull/$mod_1-$dev_1/ >/dev/null
                             echo -e "----------------COMPRIMIENDO FICHERO-----------------------------------"
-                            tar -zcvf $gzname-$time.tar.gz dia-$time/ >/dev/null
+                            tar -zcvf $PWD/device-pull/$mod_1-$dev_1/$gzname-$time.tar.gz $PWD/device-pull/$mod_1-$dev_1/dia-$time/ >/dev/null
                             echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
                             rsync --progress $PWD/device-pull/$mod_1-$dev_1/$gzname-dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
                             popd >/dev/null
-                        else
-                            echo -e "Error intentalo de nuevo"
-                            dev_1_dia_pull
                     fi
-                fi
 }
 
 
