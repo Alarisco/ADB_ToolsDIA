@@ -54,15 +54,6 @@ else
     exit 1
 fi
 
-while true; do
-    read -p $'\e[93;1mQuieres matar y reiniciar el servicio ADB\e[1;97m (Y/N) \e[93;1m? : \e[1;91m' yn
-    case $yn in
-    [Yy]* ) adb kill-server >/dev/null 2>&1 | echo -e "\n\nParando ADB" ;adb start-server >/dev/null 2>&1 | echo -e "\n\nIniciando ADB." ;break;;
-    [Nn]* )  echo -e "Continuamos" ;break;;
-    * ) echo -e "\e[1;93m Por favor escribe\e[1;97m Yy o Nn\e[0m";;
-    esac
-    done
-
 clear
 
 banner () {
