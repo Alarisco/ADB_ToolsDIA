@@ -10,7 +10,6 @@ dev_1=$(echo "${dev[0]}")
 dev_2=$(echo "${dev[1]}")
 dev_3=$(echo "${dev[2]}")
 
-## DEVICE MODEL EXTARCT ##
 
 adb devices -l | grep model > .temp/dev_list_model_temp 2> /dev/null
 model=(`cat .temp/dev_list_model_temp`)
