@@ -64,7 +64,7 @@ dev_1_dia_pull () {
                 [Yy]* ) 
                     read -p 'Introduce un nombre para el archivo: ' inputname
                     
-                    tar -zcvf $inputname_$PWD/device-pull/$mod_1-$dev_1/dia-$time.tar.gz $PWD/device-pull/$mod_1-$dev_1/dia-$time/ >dev/null
+                    tar -zcvf $PWD/device-pull/$mod_1-$dev_1/$inputname_dia-$time.tar.gz $PWD/device-pull/$mod_1-$dev_1/dia* >dev/null
                     echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
                     rsync --progress $inputname_$PWD/device-pull/$mod_1-$dev_1/dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
                             ;;
