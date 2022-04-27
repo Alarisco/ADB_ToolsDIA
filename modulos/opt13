@@ -44,6 +44,31 @@ if [ "$dev_1" == "" ]
         fi        
 fi
 
+subida_hsr () {
+
+                time=$(date '+%Y-%m-%d')
+                read -p $'\e[1;91mEscribe un nombre para el archivo\e[0m \e[24;1;97m : ' gzname
+                if [ "$gzname" = "" ]
+                then
+                    echo -e "Escribe un nombre por favor"
+                    subida_hsr
+                else
+                    if [ -f $gzname]
+                        then
+                            pushd $PWD/device-pull/$mod_1-$dev_1/ >/dev/null
+                            echo -e "----------------COMPRIMIENDO FICHERO-----------------------------------"
+                            tar -zcvf $gzname-$time.tar.gz dia-$time/ >/dev/null
+                            echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
+                            rsync --progress $PWD/device-pull/$mod_1-$dev_1/$gzname-dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
+                            popd >/dev/null
+                        else
+                            echo -e "Error intentalo de nuevo"
+                            dev_1_dia_pull
+                    fi
+                fi
+}
+
+
 dev_1_dia_pull () {
 
                 echo -e "\n\e[1;93mCopiando carpeta dia del dispositivo $mod_1\n\e[93m"
@@ -61,16 +86,8 @@ dev_1_dia_pull () {
 
                 read -p $'\n\e[93;1mDESEAS SUBIR LA CARPETA DIA A HSR \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
                 case $yn in
-                [Yy]* ) 
-                    read -p 'Introduce un nombre para el archivo: ' inputname
-                    pushd $PWD/device-pull/$mod_1-$dev_1/
-
-                    tar -zcvf $inputname_dia-$time.tar.gz dia-$time/ >/dev/null
-                    echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
-                    rsync --progress $PWD/device-pull/$mod_1-$dev_1/$inputname_dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
-                    popd >/dev/null
-                            ;;
-                [Nn]* ) ;;
+                [Yy]* ) subida_hsr;;
+                [Nn]* ) bash modulos/funcion.sh;;
                 * ) echo -e "\n\e[1;4;91mYy/Nn :- (1/2)\n";;
 
                 esac
