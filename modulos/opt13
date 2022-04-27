@@ -56,7 +56,7 @@ dev_1_dia_pull () {
                             echo $tem_dir
                             mkdir -p $tmp_dir
                     fi
-                time=$(date)
+                $(date '+%Y-%m-%d')
                 adb -s $dev_1 pull /sdcard/dia/ $PWD/device-pull/$mod_1-$dev_1/dia-$time/
 
                 read -p $'\n\e[93;1mDESEAS SUBIR LA CARPETA DIA A HSR \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
@@ -88,7 +88,7 @@ dev_2_dia_pull () {
                             tmp_dir=$(echo $PWD/device-pull/$mod_2-$dev_2)
                             mkdir -p $tmp_dir
                     fi
-                time=$(date)
+                $(date '+%Y-%m-%d')
                 adb -s $dev_2 pull /sdcard/dia/ $PWD/device-pull/$mod_2-$dev_2/dia-$time/
                 echo -e "\n\e[1;92mProceso completado.\n"
 
@@ -105,7 +105,7 @@ dev_3_dia_pull () {
                             tmp_dir=$(echo $PWD/device-pull/$mod_3-$dev_3)
                             mkdir -p $tmp_dir
                     fi
-                time=$(date)
+                $(date '+%Y-%m-%d')
                 adb -s $dev_3 pull /sdcard/dia/ $PWD/device-pull/$mod_3-$dev_3/dia-$time/
                 echo -e "\n\e[1;92mProceso completado.\n"
 
