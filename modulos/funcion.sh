@@ -88,6 +88,8 @@ case $options in
       "12") echo -e; bash modulos/opt12;;
       "13") echo -e; bash modulos/opt13;;
       "14") echo -e; bash modulos/opt14;;
+      "15") echo -e; bash modulos/opt15;;
+
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
 esac
