@@ -46,11 +46,11 @@ option_list () {
 banner
 echo -e "\n\n\e[1;4;91mESCOGE UNA OPCION:\e[0m\n\n"
 echo -e "\e[1;93m1.   \e[1;92mMOSTRAR DISPOSITIVOS CONECTADOS                           \e[1;93m16.  \e[1;92mMOVER FICHERO AL DISPOSITIVO"
-echo -e "\e[1;93m2.   \e[1;92mREINICIAR EL SERVICIO ADB"
+echo -e "\e[1;93m2.   \e[1;92mREINICIAR EL SERVICIO ADB                                 \e[1;93m17.  \e[1;92mPURGA DIRECTORIOS DIA (dia, DIA, dia_1...)"                                
 echo -e "\e[1;93m3.   \e[1;92mREINICIAR EL TERMINAL CONECTADO"
-echo -e "\e[1;93m4.   \e[1;92mLANZA UNA CONSOLA ADB_SHELL                               \e[1;93m17.  \e[1;92mEJECUTA UNA APLICACION "
-echo -e "\e[1;93m5.   \e[1;92mINFORMACION DEL TERMINAL COMPLETA                         \e[1;93m18.  \e[1;92mEJECUTA APP GESTION TIENDA DIA% "
-echo -e "\e[1;93m6.   \e[1;92mINFORMACION DEL TERMINAL RESUMEN                          \e[1;93m19.  \e[1;92mEJECUTA APP QUICK_SUPPORT "
+echo -e "\e[1;93m4.   \e[1;92mLANZA UNA CONSOLA ADB_SHELL                               \e[1;93m18.  \e[1;92mEJECUTA UNA APLICACION "
+echo -e "\e[1;93m5.   \e[1;92mINFORMACION DEL TERMINAL COMPLETA                         \e[1;93m19.  \e[1;92mEJECUTA APP GESTION TIENDA DIA% "
+echo -e "\e[1;93m6.   \e[1;92mINFORMACION DEL TERMINAL RESUMEN                          \e[1;93m2o.  \e[1;92mEJECUTA APP QUICK_SUPPORT "
 echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'"
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
 echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
@@ -90,6 +90,7 @@ case $options in
       "14") echo -e; bash modulos/opt14;;
       "15") echo -e; bash modulos/opt15;;
       "16") echo -e; bash modulos/opt16;;
+      "17") echo -e; bash modulos/opt17;;
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 

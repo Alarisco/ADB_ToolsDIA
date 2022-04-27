@@ -1,0 +1,78 @@
+#!/bin/bash
+#Tool = ADB_ToolsDia v2
+#Author = Alvaro Alonso
+#Date = 2022
+
+if [ -d $PWD/device-pull/ ]
+    then
+        echo -e "\e[92mDirectorio $PWD/device-pull/ ya existe \n"
+    else
+        mkdir $PWD/device-pull > /dev/null 2&>1
+fi
+
+adb devices | sed -n '2,$p' | awk '{ print $1 }' > .temp/dev_list_temp  2> /dev/null
+dev=(`cat .temp/dev_list_temp`)
+dev=("${dev[@]}")
+dev_1=$(echo "${dev[0]}")
+dev_2=$(echo "${dev[1]}")
+dev_3=$(echo "${dev[2]}")
+
+
+adb devices -l | grep model > .temp/dev_list_model_temp  2> /dev/null
+model=(`cat .temp/dev_list_model_temp`)
+model=("${model[@]}")
+mod_1=$(echo "${model[4]}" | cut -c 7- )
+mod_2=$(echo "${model[11]}" | cut -c 7- )
+mod_3=$(echo "${model[18]}" | cut -c 7- )
+
+if [ "$dev_1" == "" ]
+    then
+        total_dev=0
+    else
+        total_dev=1
+        if [ "$dev_2" == "" ]
+            then
+                total_dev=1
+            else
+                total_dev=2
+                if [ "$dev_3" == "" ]
+                    then
+                        total_dev=2
+                    else
+                        total_dev=3
+                fi
+        fi        
+fi
+
+dia_tree(){
+
+                read -p $'\e[1;91mDeseas crear el arbol de carpetas APP DIA GT? ()\e[0m \e[24;1;97m : ' gztree
+                if [ "$gztree" = "" ]
+                then
+                    echo -e ""
+                    subida_hsr
+                else
+                            pushd $PWD/device-pull/$mod_1-$dev_1/ >/dev/null
+                            tar -zcvf $gztree-$time.tar.gz dia-$time/ >/dev/null
+                            echo -e "\n\e[1;93mGuardando ficheros TDA.$TDA en BBDD_HSR\n\e[93m"
+                            rsync --progress $PWD/device-pull/$mod_1-$dev_1/$gztree-dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
+                            popd >/dev/null
+                    fi
+
+
+}
+
+dev_1_dia (){
+            
+            echo -e "\n\e[1;92mBorrando carpetas dia en dispositvo $mod_1\n"
+            adb shell rm -rR /sdcard/Dia* >/dev/null
+            adb shell rm -rR /sdcard/dia* >/dev/null
+
+}
+
+dev_2_dia (){}
+
+dev_1_dia (){}
+
+
+
