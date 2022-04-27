@@ -3,7 +3,7 @@
 #Author = Alvaro Alonso
 #Date = 2022
 
-current_version=2.0.2
+current_version=2.0.1
 
 echo -e "Herramientas ADB para terminales DIA%\n\n"
 
@@ -17,7 +17,9 @@ check_new_version () {
             then
                 echo -e "Current Version = $current_version , New Version = $checked_version"
                 echo -e "\n\e[91;7mHay una nueva version disponible\e[27m\n"
+                curl -s https://raw.githubusercontent.com/Alarisco/ADB_ToolsDIA/main/changelog/changelog.txt
                 sleep 5 | echo -e "\e[93;5mEspera 5s o solicita la ultima versión\e[0m"
+
         fi
     fi
 
