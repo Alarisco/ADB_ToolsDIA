@@ -139,7 +139,6 @@ if [ "$total_dev" ==  "0" ]
         fi
 fi
 
-
 read -p $'\n\e[93;1mDESEAS LIMPIAR LA PANTALLA (clear) \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
 case $yn in
   [Yy]* ) clear; bash modulos/funcion.sh;;
