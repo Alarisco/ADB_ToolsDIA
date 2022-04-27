@@ -38,10 +38,8 @@ echo -e "\e[1;93m
                                                                                                                
 
 \e[0m"
-echo
-echo -e "\ePor Alvaro Alonso\e[0m"
+echo -e "\e-Por Alvaro Alonso\e[0m"
 }
-
 
 option_list () {
 
@@ -57,7 +55,7 @@ echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'"
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
 echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
 echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL"
-echo -e "\e[1;93m11.  \e[1;92mCOPIA TODAS LAS FOTOS DEL TERMINAL"
+echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM"
 echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD"
 echo -e "\e[1;93m13.  \e[1;92mCOPIA TODA LA CARPETA DIA% (Subida a HSR opcional)"
 echo -e "\e[1;93m14.  \e[1;92mCOPIA COMPLETA DEL TERMINAL ( Lleva tiempo )"
@@ -89,6 +87,7 @@ case $options in
       "11") echo -e; bash modulos/opt11;;       
       "12") echo -e; bash modulos/opt12;;
       "13") echo -e; bash modulos/opt13;;
+      "14") echo -e; bash modulos/opt14;;
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
 esac
