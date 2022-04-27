@@ -3,7 +3,7 @@
 #Author = Alvaro Alonso
 #Date = 2022
 
-current_version=2
+current_version=2.0.1
 
 echo -e "Herramientas ADB para terminales DIA%\n\n"
 
