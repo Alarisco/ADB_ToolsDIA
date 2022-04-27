@@ -53,7 +53,7 @@ echo -e "\e[1;93m5.   \e[1;92mINFORMACION DEL TERMINAL COMPLETA                 
 echo -e "\e[1;93m6.   \e[1;92mINFORMACION DEL TERMINAL RESUMEN                          \e[1;93m2o.  \e[1;92mEJECUTA APP QUICK_SUPPORT "
 echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'"
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
-echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS"
+echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS                        \e[1;93m21.  \e[1;92mCOMPRUEBA SI APK ESTA INSTALADA EN TERMINAL "
 echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL"
 echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM"
 echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD"
