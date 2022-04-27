@@ -3,27 +3,27 @@
 #Author = Alvaro Alonso
 #Date = 2022
 
-actualversion=2
+current_version=2
 
 echo -e "Herramientas ADB para terminales DIA%\n\n"
 
 echo -e "Comprobando si hay una nueva versión"
 
-comprueba_nueva_version () {
+check_new_version () {
 
     if ping -q -c 1 -W 1 google.com >/dev/null; then
         checked_version=$(curl -s https://raw.githubusercontent.com/Alarisco/ADB_ToolsDIA/main/modulos/version)
-            if ["$checked_version" != "$actualversion"]
-                then
-                    echo -e "Versión Actual = $actualversion , Nueva Versión = $checked_version"
-                    echo -e "\n\e[91;7mNueva versión disponible\e[27m\n"
-                    sleep 5 | echo -e "\e[93;5mEspera 5 segundos o actualiza\e[0m"
-            fi
+        if [ "$checked_version" != "$current_version" ]
+            then
+                echo -e "Current Version = $current_version , New Version = $checked_version"
+                echo -e "\n\e[91;7mHay una nueva version disponible\e[27m\n"
+                sleep 5 | echo -e "\e[93;5mEspera 5s o solicita la ultima versión\e[0m"
         fi
+    fi
 
 }
 
-comprueba_nueva_version
+check_new_version
 
 if [ $(id -u) -ne 0 ]; then
         echo "EJECUTA EL SCRIPT CON SUDO"
