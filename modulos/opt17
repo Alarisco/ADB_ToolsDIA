@@ -46,19 +46,13 @@ fi
 
 dia_tree(){
 
-                read -p $'\e[1;91mDeseas crear el arbol de carpetas APP DIA GT? ()\e[0m \e[24;1;97m : ' gztree
-                if [ "$gztree" = "" ]
-                then
-                    echo -e ""
-                    subida_hsr
-                else
-                            pushd $PWD/device-pull/$mod_1-$dev_1/ >/dev/null
-                            tar -zcvf $gztree-$time.tar.gz dia-$time/ >/dev/null
-                            echo -e "\n\e[1;93mGuardando ficheros TDA.$TDA en BBDD_HSR\n\e[93m"
-                            rsync --progress $PWD/device-pull/$mod_1-$dev_1/$gztree-dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
-                            popd >/dev/null
-                    fi
-
+                    echo -e "\n\e[1;93mCreando arbol de carpetas en dispositivo\n\e[93m"
+                      adb shell mkdir /sdcard/dia >/dev/null
+                      adb shell mkdir /sdcard/dia/history >/dev/null
+                      adb shell mkdir /sdcard/dia/in >/dev/null
+                      adb shell mkdir /sdcard/dia/out >/dev/null
+                      adb shell mkdir /sdcard/dia/temp >/dev/null
+                    echo -e "\n\e[1;93mProceso correcto\n\e[93m"
 
 }
 
@@ -67,12 +61,88 @@ dev_1_dia (){
             echo -e "\n\e[1;92mBorrando carpetas dia en dispositvo $mod_1\n"
             adb shell rm -rR /sdcard/Dia* >/dev/null
             adb shell rm -rR /sdcard/dia* >/dev/null
+            read -p $'\n\e[93;1mDESEAS SUBIR LA CARPETA DIA A HSR \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+            case $yn in
+                [Yy]* ) dia_tree;;
+                [Nn]* ) 
+                        read -p $'\n\e[93;1mDESEAS LIMPIAR LA PANTALLA (clear) \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+                        case $yn in
+                        [Yy]* ) clear; bash modulos/funcion.sh;;
+                        [Nn]* ) bash modulos/funcion.sh;;
+                        * ) bash modulos/funcion.sh;;
+                        esac
+                ;;
+                * ) echo -e "\n\e[1;4;91mYy/Nn :- (1/2)\n";;
+            esac
+
 
 }
 
-dev_2_dia (){}
+dev_2_dia (){
 
-dev_1_dia (){}
+            echo -e "\n\e[1;92mBorrando carpetas dia en dispositvo $mod_2\n"
+            adb shell rm -rR /sdcard/Dia* >/dev/null
+            adb shell rm -rR /sdcard/dia* >/dev/null
+
+}
+
+dev_1_dia (){
+
+            echo -e "\n\e[1;92mBorrando carpetas dia en dispositvo $mod_2\n"
+            adb shell rm -rR /sdcard/Dia* >/dev/null
+            adb shell rm -rR /sdcard/dia* >/dev/null
+
+}
+
+if [ "$total_dev" ==  "0" ]
+    then
+        echo -e "\e[91;1mNO SE HAN ENCONTRADO DISPOSITIVOS"
+    else
+        if [ "$total_dev" == "1" ]
+            then
+                echo -e "\e[93m1. \e[92m$dev_1 , \e[93mModel : \e[92m$mod_1"
+                dev_1_tree
+
+            else
+                if [ "$total_dev" == "2" ]
+                    then
+                        echo -e "\e[93mSelecciona dispositivo para abrir terminal :- \e[92m\n"
+                        echo -e "\e[93m1. \e[92m$dev_1 , \e[93mModel : \e[92m$mod_1"
+                        echo -e "\e[93m2. \e[92m$dev_2 , \e[93mModel : \e[92m$mod_2"
+                        while [ 1 ]; do
+                            read -p $'\n\e[1;4;91mSelecciona\e[0m\e[24;1;97m : ' options
+                            case $options in
+                            "1") dev_1_tree; break;;
+                            "2") dev_2_tree; break;;
+                              *) echo -e "\n\e[1;4;91mEscoge un dispositivo :- (1/2)\n";;
+                            esac
+                        done
+                    else
+                        if [ "$total_dev" == "3" ]
+                            then
+                                echo -e "\e[93mSelecciona dispositivo para abrir terminal :- \e[92m\n"
+                                echo -e "\e[93m1. \e[92m$dev_1 , \e[93mModel : \e[92m$mod_1"
+                                echo -e "\e[93m1. \e[92m$dev_2 , \e[93mModel : \e[92m$mod_2"
+                                echo -e "\e[93m1. \e[92m$dev_3 , \e[93mModel : \e[92m$mod_3"
+                        while [ 1 ]; do
+                            read -p $'\n\e[1;4;91mSelecciona\e[0m\e[24;1;97m : ' options
+                            case $options in
+                            "1") dev_1_tree; break;;
+                            "2") dev_2_tree; break;;
+                            "3") dev_3_tree; break;;
+                              *) echo -e "\n\e[1;4;91mEscoge un dispositivo :- (1/2/3/)\n";;
+                            esac
+                        done
+                        fi
+                fi  
+                        
+        fi
+fi
 
 
-
+read -p $'\n\e[93;1mDESEAS LIMPIAR LA PANTALLA (clear) \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+case $yn in
+  [Yy]* ) clear; bash modulos/funcion.sh;;
+  [Nn]* ) bash modulos/funcion.sh;;
+  * ) bash modulos/funcion.sh;;
+esac
