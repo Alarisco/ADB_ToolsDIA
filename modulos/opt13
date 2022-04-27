@@ -53,7 +53,6 @@ subida_hsr () {
                     echo -e "Escribe un nombre por favor"
                     subida_hsr
                 else
-                            echo -e "----------------COMPRIMIENDO FICHERO-----------------------------------"
                             pushd $PWD/device-pull/$mod_1-$dev_1/ >/dev/null
                             tar -zcvf $gzname-$time.tar.gz dia-$time/ >/dev/null
                             echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
