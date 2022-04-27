@@ -77,6 +77,5 @@ echo -e "\e[1;93m
 
 \e[0m"
 echo
-echo -e "\033[0mPor Alvaro Alonso\e[0m"
 }
 bash modulos/funcion.sh
