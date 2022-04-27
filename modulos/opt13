@@ -57,7 +57,6 @@ subida_hsr () {
                             tar -zcvf $PWD/device-pull/$mod_1-$dev_1/$gzname-$time.tar.gz $PWD/device-pull/$mod_1-$dev_1/dia-$time/ >/dev/null
                             echo -e "----------------Guardando ficheros TDA.$TDA en BBDD_HSR----------------"
                             rsync --progress $PWD/device-pull/$mod_1-$dev_1/$gzname-dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
-                            popd >/dev/null
                     fi
 }
 
@@ -95,15 +94,24 @@ dev_2_dia_pull () {
                     
                     if [ -d $PWD/device-pull/"$mod_2"-"$dev_2"/ ]
                         then
-                            echo -e "\e[92mDirectorio ya existe. \n"
+                            echo -e "\e[92mDirectorio $PWD/device-pull/"$mod_2"-"$dev_2"/ ya existe. \n"
                         else
                             tmp_dir=$(echo $PWD/device-pull/$mod_2-$dev_2)
+                            echo $tem_dir
                             mkdir -p $tmp_dir
                     fi
                 time=$(date '+%Y-%m-%d')
                 adb -s $dev_2 pull /sdcard/dia/ $PWD/device-pull/$mod_2-$dev_2/dia-$time/
-                echo -e "\n\e[1;92mProceso completado.\n"
 
+                read -p $'\n\e[93;1mDESEAS SUBIR LA CARPETA DIA A HSR \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+                case $yn in
+                [Yy]* ) subida_hsr;;
+                [Nn]* ) bash modulos/funcion.sh;;
+                * ) echo -e "\n\e[1;4;91mYy/Nn :- (1/2)\n";;
+
+                esac
+
+                echo -e "\n\e[1;92mProceso completado.\n"
 }
 
 dev_3_dia_pull () {
@@ -112,15 +120,24 @@ dev_3_dia_pull () {
                     
                     if [ -d $PWD/device-pull/"$mod_3"-"$dev_3"/ ]
                         then
-                            echo -e "\e[92mDirectorio ya existe. \n" 
+                            echo -e "\e[92mDirectorio $PWD/device-pull/"$mod_3"-"$dev_3"/ ya existe. \n"
                         else
                             tmp_dir=$(echo $PWD/device-pull/$mod_3-$dev_3)
+                            echo $tem_dir
                             mkdir -p $tmp_dir
                     fi
                 time=$(date '+%Y-%m-%d')
                 adb -s $dev_3 pull /sdcard/dia/ $PWD/device-pull/$mod_3-$dev_3/dia-$time/
-                echo -e "\n\e[1;92mProceso completado.\n"
 
+                read -p $'\n\e[93;1mDESEAS SUBIR LA CARPETA DIA A HSR \e[1;97m (y/N) \e[93;1m? : \e[1;91m' yn
+                case $yn in
+                [Yy]* ) subida_hsr;;
+                [Nn]* ) bash modulos/funcion.sh;;
+                * ) echo -e "\n\e[1;4;91mYy/Nn :- (1/2)\n";;
+
+                esac
+
+                echo -e "\n\e[1;92mProceso completado.\n"
 }
 
 if [ "$total_dev" ==  "0" ]
