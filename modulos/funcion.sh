@@ -53,7 +53,7 @@ echo -e "\e[1;93m6.   \e[1;92mINFORMACION DEL TERMINAL RESUMEN                  
 echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'                              \e[1;93m21.  \e[1;92mEJECUTA AUTOCONEXION WIFI DIA "
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
 echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS                        \e[1;93m22.  \e[1;92mCOMPRUEBA SI APK ESTA INSTALADA EN TERMINAL "
-echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL"
+echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL                                       \e[1;93m23.  \e[1;92mCOMPRUEBA SI ESTA CONECTADO A WIFI "
 echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM"
 echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD"
 echo -e "\e[1;93m13.  \e[1;92mCOPIA TODA LA CARPETA DIA% (Subida a HSR opcional)"
@@ -95,6 +95,7 @@ case $options in
       "20") echo -e; bash modulos/opt20;;
       "21") echo -e; bash modulos/opt21;;
       "22") echo -e; bash modulos/opt22;;
+      "23") echo -e; bash modulos/opt23;;
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
