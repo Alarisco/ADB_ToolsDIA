@@ -8,7 +8,7 @@ clean_exit () {
     rm -rf $PWD/.temp/* &> /dev/null
     rm -rf $PWD/1 &> /dev/null
     rm -rf $PWD/2 &> /dev/null
-    clear && echo -e "\n Ctrl-C pulsado...Limpiando script.\n" && sleep 1s
+    clear && echo -e "\n Ctrl-C pulsado...Limpiando script.\n" && sleep 1
     echo -e "Saliendo de la Herramienta"
     echo -e "\nLISTO. CHAO"
     exit
