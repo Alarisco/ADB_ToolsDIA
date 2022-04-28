@@ -59,7 +59,7 @@ echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM                        
 echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD                            \e[1;93m25.  \e[1;92mDESINSTALA APP GESTION TIENDA "
 echo -e "\e[1;93m13.  \e[1;92mCOPIA TODA LA CARPETA DIA% (Subida a HSR opcional)"
 echo -e "\e[1;93m14.  \e[1;92mCOPIA COMPLETA DEL TERMINAL ( Lleva tiempo )"
-echo -e "\e[1;93m15.  \e[1;92mCOPIA UNA CARPETA ESPECIFICA DEL TERMINAL                  \e[1;91mPRESIONA Ctrl+c PARA SALIR\n"
+echo -e "\e[1;93m15.  \e[1;92mCOPIA UN ARCHIVO O CARPETA ESPECIFICA DEL TERMINAL                  \e[1;91mPRESIONA Ctrl+c PARA SALIR\n"
 echo -e $revised
 read -p $'\e[1;4;91mINTRODUCE EL NUMERO DE LA OPCION QUE DESEAS EJECUTAR\e[0m\e[24;1;97m : ' options
 }
