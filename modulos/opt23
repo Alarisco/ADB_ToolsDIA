@@ -62,8 +62,16 @@ dev_2_dump () {
                 echo -e "\n\e[1;92mComprobando si hay wifi conectado en $mod_2\n"
                 adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId' 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump
 
-                sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
-                cat sys-dump-info/$mod_2-$time-symple.dump
+                if [ -s sys-dump-info/$mod_2-$time-symple.dump ]
+                    then
+                        sleep 1 | echo -e "Dispositivo conectado a:"
+                        echo 
+                        head -1 sys-dump-info/$mod_2-$time-symple.dump 
+                    else
+                        echo -e "\e[91;1mDispositivo no esta conectado a ningún wifi" 
+
+                fi
+               
 
 }
 
@@ -73,8 +81,16 @@ dev_3_dump () {
                 echo -e "\n\e[1;92mComprobando si hay wifi conectado en $mod_3\n"
                 adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId' 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump
 
-                sleep 2.5 | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
-                cat sys-dump-info/$mod_3-$time-symple.dump
+                if [ -s sys-dump-info/$mod_3-$time-symple.dump ]
+                    then
+                        sleep 1 | echo -e "Dispositivo conectado a:"
+                        echo 
+                        head -1 sys-dump-info/$mod_3-$time-symple.dump 
+                    else
+                        echo -e "\e[91;1mDispositivo no esta conectado a ningún wifi" 
+
+                fi
+               
 
 }
 
