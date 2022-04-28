@@ -44,7 +44,7 @@ if [ "$total_dev" ==  "0" ]
     else
         if [ "$total_dev" == "1" ]
             then
-                adb -s $dev_1 shell monkey -p es.dia.tiendas.wifiselfconnection-c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"
+                adb -s $dev_1 shell monkey -p es.dia.tiendas.wifiselfconnection -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"
                 echo -e "\n\e[1;92mListo"
             else
                 if [ "$total_dev" == "2" ]
@@ -55,8 +55,8 @@ if [ "$total_dev" ==  "0" ]
                         while [ 1 ]; do
                             read -p $'\n\e[1;4;91mNº\e[0m\e[24;1;97m : ' options
                             case $options in
-                            "1")  adb -s $dev_1 shell monkey -p es.dia.tiendas.wifiselfconnection-c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
-                            "2")  adb -s $dev_2 shell monkey -p es.dia.tiendas.wifiselfconnection-c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
+                            "1")  adb -s $dev_1 shell monkey -p es.dia.tiendas.wifiselfconnection -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
+                            "2")  adb -s $dev_2 shell monkey -p es.dia.tiendas.wifiselfconnection -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
                               *) echo -e "\n\e[1;4;91mNº :- (1/2)\n";;
                             esac
                         done
@@ -70,9 +70,9 @@ if [ "$total_dev" ==  "0" ]
                         while [ 1 ]; do
                             read -p $'\n\e[1;4;91mNº\e[0m\e[24;1;97m : ' options
                             case $options in
-                            "1")  adb -s $dev_1 shell monkey -p es.dia.tiendas.wifiselfconnection-c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
-                            "2")  adb -s $dev_2 shell monkey -p es.dia.tiendas.wifiselfconnection-c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
-                            "3")  adb -s $dev_3 shell monkey -p es.dia.tiendas.wifiselfconnection-c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
+                            "1")  adb -s $dev_1 shell monkey -p es.dia.tiendas.wifiselfconnection -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
+                            "2")  adb -s $dev_2 shell monkey -p es.dia.tiendas.wifiselfconnection -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
+                            "3")  adb -s $dev_3 shell monkey -p es.dia.tiendas.wifiselfconnection -c android.intent.category.LAUNCHER 1 >/dev/null 2>&1 | echo -e "\e[1;93mLanzando la APP.\e[0m"; echo -e "\n\e[1;92mListo"; break;;
                               *) echo -e "\n\e[1;4;91mNº :- (1/2/3/)\n";;
                             esac
                         done
