@@ -50,9 +50,9 @@ echo -e "\e[1;93m3.   \e[1;92mREINICIAR EL TERMINAL CONECTADO"
 echo -e "\e[1;93m4.   \e[1;92mLANZA UNA CONSOLA ADB_SHELL                               \e[1;93m18.  \e[1;92mEJECUTA UNA APLICACION "
 echo -e "\e[1;93m5.   \e[1;92mINFORMACION DEL TERMINAL COMPLETA                         \e[1;93m19.  \e[1;92mEJECUTA APP GESTION TIENDA DIA% "
 echo -e "\e[1;93m6.   \e[1;92mINFORMACION DEL TERMINAL RESUMEN                          \e[1;93m2o.  \e[1;92mEJECUTA APP QUICK_SUPPORT "
-echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'"
+echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'                              \e[1;93m2o.  \e[1;92mEJECUTA AUTOCONEXION WIFI DIA "
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
-echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS                        \e[1;93m21.  \e[1;92mCOMPRUEBA SI APK ESTA INSTALADA EN TERMINAL "
+echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS                        \e[1;93m22.  \e[1;92mCOMPRUEBA SI APK ESTA INSTALADA EN TERMINAL "
 echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL"
 echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM"
 echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD"
@@ -94,6 +94,7 @@ case $options in
       "19") echo -e; bash modulos/opt19;;
       "20") echo -e; bash modulos/opt20;;
       "21") echo -e; bash modulos/opt21;;
+      "22") echo -e; bash modulos/opt22;;
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
