@@ -54,8 +54,9 @@ echo -e "\e[1;93m7.   \e[1;92mINSTALA UNA APLICACION 'apk'                      
 echo -e "\e[1;93m8.   \e[1;92mDESINSTALA UNA APLICACION"
 echo -e "\e[1;93m9.   \e[1;92mLISTA DE TODAS LAS APKS INSTALADAS                        \e[1;93m22.  \e[1;92mCOMPRUEBA SI APK ESTA INSTALADA EN TERMINAL "
 echo -e "\e[1;93m10.  \e[1;92mTAILOG DEL TERMINAL                                       \e[1;93m23.  \e[1;92mCOMPRUEBA SI ESTA CONECTADO A WIFI "
-echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM"
-echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD"
+echo -e ""
+echo -e "\e[1;93m11.  \e[1;92mCOPIA TODA LA CARPETA DCIM                                \e[1;93m24.  \e[1;92mINSTALA APP GESTION TIENDA "
+echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD                            \e[1;93m25.  \e[1;92mDESINSTALA APP GESTION TIENDA "
 echo -e "\e[1;93m13.  \e[1;92mCOPIA TODA LA CARPETA DIA% (Subida a HSR opcional)"
 echo -e "\e[1;93m14.  \e[1;92mCOPIA COMPLETA DEL TERMINAL ( Lleva tiempo )"
 echo -e "\e[1;93m15.  \e[1;92mCOPIA UNA CARPETA ESPECIFICA DEL TERMINAL                  \e[1;91mPRESIONA Ctrl+c PARA SALIR\n"
@@ -96,6 +97,8 @@ case $options in
       "21") echo -e; bash modulos/opt21;;
       "22") echo -e; bash modulos/opt22;;
       "23") echo -e; bash modulos/opt23;;
+      "24") echo -e; bash modulos/opt24;;
+      "25") echo -e; bash modulos/opt25;;
 
       *) clear; revised="\e ERROR, ENTRADA NO RECONOCIDA\n"; option_list;;
 
