@@ -1,6 +1,5 @@
-ChangeLog Version 2.0.2
+ChangeLog Version 2.0.3
 
-- Se añaden opciones
-- Soporte para conectar hasta 3 móviles a la vez
+- NEW OPT | Instala automáticamente APPS
+- NEW OPT | Instala APP GestiónTienda
 
-Changelog de ejemplo
