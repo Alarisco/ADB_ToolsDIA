@@ -44,7 +44,7 @@ dev_1_dump () {
                 echo -e "Modelo:"  2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell getprop ro.product.model 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "Marca:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
-                adb shell "getprop | grep "ro.product.manufacturer"| cut -c 26-40 | tr -d '.[:space:]'" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "SN:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb get-serialno 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "VERSION_ANDROID:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
