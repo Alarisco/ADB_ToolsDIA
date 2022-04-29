@@ -56,7 +56,7 @@ dev_1_dump () {
                 echo -e "VERSION_APP_AUTOCONEXION_WIFI:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
 
-                sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
+                sleep 2 | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_1-$time-symple.dump
 
 }
@@ -80,7 +80,7 @@ dev_2_dump () {
                 echo -e "VERSION_APP_AUTOCONEXION_WIFI:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
 
-                sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
+                sleep 2 | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_1-$time-symple.dump
 }
 
@@ -103,7 +103,7 @@ dev_3_dump () {
                 echo -e "VERSION_APP_AUTOCONEXION_WIFI:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
 
-                sleep 2.5s | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
+                sleep 2 | echo -e "INICIANDO DISPOSITIVO, ESPERA" 
                 cat sys-dump-info/$mod_1-$time-symple.dump
 }
 
