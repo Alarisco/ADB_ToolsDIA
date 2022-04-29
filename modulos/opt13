@@ -55,7 +55,6 @@ subida_hsr () {
                 else
                             pushd $PWD/device-pull/$mod_1-$dev_1/ >/dev/null
                             TDA=$(cat /usr/local/n2a/etc/todasjuntas.properties | grep 'site'  | tail -n 1 | cut -d '=' -f2-)
-
                             tar -zcvf $gzname-$time.tar.gz dia* >/dev/null
                             echo -e "\n\e[1;93mGuardando ficheros TDA.$TDA en BBDD_HSR\n\e[93m"
                             rsync --progress $TDA-$gzname-dia-$time.tar.gz soporte@10.208.162.6:/home/BBDD_Tiendas/
