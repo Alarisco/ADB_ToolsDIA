@@ -44,7 +44,7 @@ dev_1_dump () {
                 echo -e "Modelo:"  2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell getprop ro.product.model 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "Marca:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
-                adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
+                adb shell getprop | grep "ro.product.manufacturer" | cut -c 28-90 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "SN:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb get-serialno 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "VERSION_ANDROID:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
@@ -52,9 +52,9 @@ dev_1_dump () {
                 echo -e "ANDROID_ID:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 adb shell settings get secure android_id 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
                 echo -e "VERSION_APP_GT:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
-                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" | cut -c 17-30 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
                 echo -e "VERSION_APP_AUTOCONEXION_WIFI:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump 
-                adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" | cut -c 17-30 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
                 echo -e "IMEI:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
                 adb shell "service call iphonesubinfo 1 | cut -c 52-66 | tr -d '.[:space:]'" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
 
@@ -70,7 +70,7 @@ dev_2_dump () {
                 echo -e "Modelo:"  2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 adb shell getprop ro.product.model 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 echo -e "Marca:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
-                adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
+                adb shell getprop | grep "ro.product.manufacturer" | cut -c 28-90 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 echo -e "SN:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 adb get-serialno 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 echo -e "VERSION_ANDROID:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
@@ -78,9 +78,9 @@ dev_2_dump () {
                 echo -e "ANDROID_ID:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 adb shell settings get secure android_id 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 echo -e "VERSION_APP_GT:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
-                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" | cut -c 17-30 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
                 echo -e "VERSION_APP_AUTOCONEXION_WIFI:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump 
-                adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump
+                adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" | cut -c 17-30 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump
                 echo -e "IMEI:" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump
                 adb shell "service call iphonesubinfo 1 | cut -c 52-66 | tr -d '.[:space:]'" 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump
 
@@ -95,7 +95,7 @@ dev_3_dump () {
                 echo -e "Modelo:"  2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 adb shell getprop ro.product.model 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 echo -e "Marca:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
-                adb shell getprop | grep "ro.product.manufacturer" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
+                adb shell getprop | grep "ro.product.manufacturer" | cut -c 28-90 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 echo -e "SN:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 adb get-serialno 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 echo -e "VERSION_ANDROID:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
@@ -103,9 +103,9 @@ dev_3_dump () {
                 echo -e "ANDROID_ID:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 adb shell settings get secure android_id 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 echo -e "VERSION_APP_GT:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
-                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
+                adb shell dumpsys package com.dia.tiendas.gestiontienda | grep "versionName" | cut -c 17-30 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
                 echo -e "VERSION_APP_AUTOCONEXION_WIFI:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump 
-                adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump
+                adb shell dumpsys package es.dia.tiendas.wifiselfconnection | grep "versionName" | cut -c 17-30 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump
                 echo -e "IMEI:" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump
                 adb shell "service call iphonesubinfo 1 | cut -c 52-66 | tr -d '.[:space:]'" 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump
 

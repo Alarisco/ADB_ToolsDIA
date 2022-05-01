@@ -5,7 +5,7 @@
 
 clear
 
-current_version=2.0.3
+current_version=2.0.4
 
 banner () {
 
