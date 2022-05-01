@@ -1,5 +1,7 @@
-ChangeLog Version 2.0.3
+ChangeLog Version 2.0.4
 
 - NEW OPT | Instala automáticamente APPS
 - NEW OPT | Instala APP GestiónTienda
 
+-Mejoras de visualización en OPT6
+-Se añade IP conectada en OP13
