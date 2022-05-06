@@ -63,8 +63,11 @@ dev_1_dump () {
 dev_2_dump () {
 
                 time=$(date +"%T")
-                echo -e "\n\e[1;92mComprobando si hay wifi conectado en $mod_2\n"
-                adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId' 2> /dev/null >> sys-dump-info/$mod_2-$time-symple.dump
+                echo -e "\n\e[1;92mComprobando si hay wifi conectado en $mod_1\n"
+                adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId' 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                echo -e 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                echo -e "IP:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                adb shell "ifconfig | grep -A 1 wlan0 | tail -n 1 | cut -f2 -d: | cut -f1 -d' '" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
 
                 if [ -s sys-dump-info/$mod_2-$time-symple.dump ]
                     then
@@ -82,8 +85,11 @@ dev_2_dump () {
 dev_3_dump () {
 
                 time=$(date +"%T")
-                echo -e "\n\e[1;92mComprobando si hay wifi conectado en $mod_3\n"
-                adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId' 2> /dev/null >> sys-dump-info/$mod_3-$time-symple.dump
+                echo -e "\n\e[1;92mComprobando si hay wifi conectado en $mod_1\n"
+                adb shell dumpsys netstats | grep -E 'iface=wlan.*networkId' 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                echo -e 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                echo -e "IP:" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
+                adb shell "ifconfig | grep -A 1 wlan0 | tail -n 1 | cut -f2 -d: | cut -f1 -d' '" 2> /dev/null >> sys-dump-info/$mod_1-$time-symple.dump
 
                 if [ -s sys-dump-info/$mod_3-$time-symple.dump ]
                     then
