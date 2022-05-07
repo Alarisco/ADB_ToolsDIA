@@ -3,8 +3,6 @@
 #Author = Alvaro Alonso
 #Date = 2022
 
-#BaseCommand = sudo adb shell screenrecord --verbose /sdcard/demo.mp4
-
 time=$(date +"%T")
 
 adb devices | sed -n '2,$p' | awk '{ print $1 }' > .temp/dev_list_temp 2> /dev/null
@@ -156,7 +154,7 @@ if [ "$total_dev" ==  "0" ]
     else
         if [ "$total_dev" == "1" ]
             then
-                dev_1_custom_pull
+                dev_1_custom_pull; break;;
             else
                 if [ "$total_dev" == "2" ]
                     then

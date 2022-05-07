@@ -1,8 +1,12 @@
-ChangeLog Version 2.0.5
+ChangeLog Version 2.1
 
 - NEW OPT | Instala automáticamente APPS
 - NEW OPT | Instala APP GestiónTienda
 - NEW OPT | Grabación de pantalla del terminal
 
+
 -Mejoras de visualización en OPT6
--Se añade IP conectada en OP13
+-Se añade IP conectada en OPT23
+-Mejoras en el output OPT23
+
+- Se mejora funcions para que ocupe menos espacio en la pantalla
