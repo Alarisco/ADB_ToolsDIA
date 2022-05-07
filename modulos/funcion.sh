@@ -60,7 +60,7 @@ echo -e "\e[1;93m12.  \e[1;92mCOPIA TODA LA CARPETA DOWNLOAD                    
 echo -e "\e[1;93m13.  \e[1;92mCOPIA TODA LA CARPETA DIA% (Subida a HSR opcional)"
 echo -e "\e[1;93m14.  \e[1;92mCOPIA COMPLETA DEL TERMINAL ( Lleva tiempo )              \e[1;93m26.  \e[1;92mGRABACION O CAPTURA PANTALLA DEL TERMINAL"             
 echo -e "\e[1;93m15.  \e[1;92mCOPIA UN ARCHIVO O CARPETA ESPECIFICA DEL TERMINAL"
-echo -e "                                                                               \e[1;91mPRESIONA Ctrl+c o E PARA SALIR Y LIMPAR SCRIPT\n"
+echo -e "                                                           \e[1;91mPRESIONA Ctrl+c o E PARA SALIR Y LIMPAR SCRIPT\n"
 echo -e $revised
 read -p $'\e[1;4;91mINTRODUCE EL NUMERO DE LA OPCION QUE DESEAS EJECUTAR\e[0m\e[24;1;97m : ' options
 }
